@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-cyber-bg text-cyber-text font-sans antialiased;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(0, 240, 255, 0.05) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(168, 85, 247, 0.03) 0%, transparent 50%);
+    background-attachment: fixed;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-cyber-bg;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-cyber-border rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-cyber-accent-dim;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-cyber-card/80 backdrop-blur-md border border-cyber-border rounded-xl;
+  background-image: linear-gradient(135deg, rgba(26, 35, 50, 0.8) 0%, rgba(17, 24, 39, 0.8) 100%);
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300 hover:border-cyber-accent/50 hover:shadow-lg hover:shadow-cyber-accent/10;
+  }
+
+  .cyber-input {
+    @apply bg-cyber-bg/50 border border-cyber-border rounded-lg px-4 py-2.5 text-cyber-text placeholder:text-cyber-text-muted focus:outline-none focus:border-cyber-accent focus:ring-1 focus:ring-cyber-accent transition-colors;
+  }
+
+  .cyber-btn {
+    @apply bg-cyber-accent text-cyber-bg font-semibold rounded-lg px-6 py-2.5 hover:bg-cyber-accent-dim transition-all duration-300 hover:shadow-lg hover:shadow-cyber-accent/30 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .cyber-btn-outline {
+    @apply border border-cyber-border text-cyber-text rounded-lg px-6 py-2.5 hover:border-cyber-accent hover:text-cyber-accent transition-all duration-300;
+  }
+
+  .cyber-badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium;
+  }
+
+  .cyber-badge-success {
+    @apply cyber-badge bg-cyber-success/10 text-cyber-success border border-cyber-success/30;
+  }
+
+  .cyber-badge-danger {
+    @apply cyber-badge bg-cyber-danger/10 text-cyber-danger border border-cyber-danger/30;
+  }
+
+  .cyber-badge-warning {
+    @apply cyber-badge bg-cyber-warning/10 text-cyber-warning border border-cyber-warning/30;
+  }
+
+  .cyber-badge-info {
+    @apply cyber-badge bg-cyber-accent/10 text-cyber-accent border border-cyber-accent/30;
+  }
+
+  .progress-bar {
+    @apply h-2 rounded-full bg-cyber-border overflow-hidden relative;
+  }
+
+  .progress-bar-fill {
+    @apply h-full rounded-full transition-all duration-700 ease-out;
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .scan-line {
+    @apply absolute left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-cyber-accent to-transparent;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px currentColor;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out;
+  }
+}
